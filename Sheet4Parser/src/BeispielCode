@@ -1,0 +1,33 @@
+Einfach:
+////////////////////////////////////////////
+;; Definition von Variablen
+(def basis 10)
+(def bonus 5)
+
+;; Berechnung: (10 + 5) * 2 = 30
+(def ergebnis (* (+ basis bonus) 2))
+
+;; Ausgabe des Ergebnisses, zusammengefügt mit str
+(print (str "Das Ergebnis ist: " ergebnis))
+////////////////////////////////////////////
+
+Rekursiv:
+////////////////////////////////////////////
+;; Wir definieren eine leere Liste zum Vergleich
+(def empty-list (list))
+
+;; Definition der rekursiven Funktion zur Längenberechnung
+(defn list-len (lst)
+    ;; Basisfall: Wenn die Liste gleich der leeren Liste ist, Ende
+    (if (= lst empty-list)
+        0
+        ;; Rekursiver Schritt: 1 + Länge des Restes der Liste (tail)
+        (+ 1 (list-len (tail lst)))
+    )
+)
+
+;; Test und Ausgabe
+(def my-numbers (list 10 20 30 40 42))
+
+(print (str "Die Laenge der Liste ist: " (list-len my-numbers)))
+////////////////////////////////////////////

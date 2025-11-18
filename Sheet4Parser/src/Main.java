@@ -10,15 +10,23 @@ public class Main {
         String example1 = "(def x 10) (print x)";
 
         String example2 = """
-                ;; Definition von globalen Variablen
-                (def basis 10)
-                (def bonus 5)
+                ;; Wir definieren eine leere Liste zum Vergleich
+                (def empty-list (list))
                 
-                ;; Berechnung: (10 + 5) * 2 = 30
-                (def ergebnis (* (+ basis bonus) 2))
+                ;; Definition der rekursiven Funktion zur Längenberechnung
+                (defn list-len (lst)
+                    ;; Basisfall: Wenn die Liste gleich der leeren Liste ist, Ende
+                    (if (= lst empty-list)
+                        0 \s
+                        ;; Rekursiver Schritt: 1 + Länge des Restes der Liste (tail)
+                        (+ 1 (list-len (tail lst)))
+                    )
+                )
                 
-                ;; Ausgabe
-                (print (str "Das Ergebnis ist: " ergebnis))""";
+                ;; Test und Ausgabe
+                (def my-numbers (list 10 20 30 40 42))
+                
+                (print (str "Die Laenge der Liste ist: " (list-len my-numbers)))""";
 
         System.out.println("--- Original Code ---");
         System.out.println(example2);
