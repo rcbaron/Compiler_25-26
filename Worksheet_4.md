@@ -2,6 +2,7 @@
 
 ## 4.1
 Gegeben sei die Grammatik $G=(\{S,A\},\{1,2,3\},P,S)$ mit den Produktionsregeln:
+
 $$P = \{ S \to 1AS \mid 3, \quad A \to 2AS \mid \epsilon \}$$
 
 ### First-Mengen
