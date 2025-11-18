@@ -24,6 +24,16 @@ public class Main {
         System.out.println(example2);
         System.out.println("\n--- Lexing ---");
 
+        Lexer demolexer = new Lexer(example1);
+        boolean run = true;
+        while (run){
+            Token demotoken = demolexer.nextToken();
+            if(demotoken.type() == TokenType.EOF){
+                run = false;
+            }
+            System.out.println(demotoken);
+        }
+
         try {
             Lexer lexer = new Lexer(example2);
 
